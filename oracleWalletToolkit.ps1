@@ -1,5 +1,5 @@
 ﻿#!/usr/bin/env pwsh
-# Authore Pedrotti Francesco francesco.pedrotti.88@gmail.com
+# Author Pedrotti Francesco francesco.pedrotti.88@gmail.com
 # =========================================================================================
 # SCRIPT NAME: oracleWalletToolkit.ps1
 # VERSION:     2.0
