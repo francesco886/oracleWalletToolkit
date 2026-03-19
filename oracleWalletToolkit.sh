@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# Authore Pedrotti Francesco francesco.pedrotti.88@gmail.com
 # =========================================================================================
 # SCRIPT NAME: oracleWalletToolkit.sh
 # VERSION:     2.0
