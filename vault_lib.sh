@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-URL_VAULT="https://rpvault.gruppoitas.it"
-#URL_VAULT="http://rilamm01.gruppoitas.local:8200"
+URL_VAULT=""
 RED="\\e[31m[ERROR]"
 GREEN="\\e[32m[INFO]"
 PURPLE="\\e[35m"

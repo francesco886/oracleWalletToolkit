@@ -153,17 +153,17 @@ function basic_alias() {
             if [[ $NOIDEMPOTENT == true ]]; then
 
                 if [[ $FAILOVER == true ]]; then
-                    echo "${db_connection}_${ENV_UPPER}=(DESCRIPTION=(FAILOVER=true)(LOAD_BALANCE=true)(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".gruppoitas.local)(FAILOVER_MODE=(TYPE=select)(METHOD=preconnect)(RETRIES=20)(DELAY=3))))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_BASIC
+                    echo "${db_connection}_${ENV_UPPER}=(DESCRIPTION=(FAILOVER=true)(LOAD_BALANCE=true)(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".domain.local)(FAILOVER_MODE=(TYPE=select)(METHOD=preconnect)(RETRIES=20)(DELAY=3))))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_BASIC
                 else
-                    echo "${db_connection}_${ENV_UPPER}=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".gruppoitas.local)))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_BASIC
+                    echo "${db_connection}_${ENV_UPPER}=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".domain.local)))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_BASIC
                 fi
 
             else
 
                 if [[ $FAILOVER == true ]]; then
-                    echo "${db_connection}=(DESCRIPTION=(FAILOVER=true)(LOAD_BALANCE=true)(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".gruppoitas.local)(FAILOVER_MODE=(TYPE=select)(METHOD=preconnect)(RETRIES=20)(DELAY=3))))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_BASIC
+                    echo "${db_connection}=(DESCRIPTION=(FAILOVER=true)(LOAD_BALANCE=true)(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".domain.local)(FAILOVER_MODE=(TYPE=select)(METHOD=preconnect)(RETRIES=20)(DELAY=3))))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_BASIC
                 else
-                    echo "${db_connection}=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".gruppoitas.local)))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_BASIC
+                    echo "${db_connection}=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".domain.local)))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_BASIC
                 fi
 
             fi
@@ -245,9 +245,9 @@ function wallet_alias() {
                     fi
 
                     if [[ $FAILOVER == true ]]; then
-                        echo "${db_connection_alias}=(DESCRIPTION=(FAILOVER=true)(LOAD_BALANCE=true)(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".gruppoitas.local)(FAILOVER_MODE=(TYPE=select)(METHOD=preconnect)(RETRIES=20)(DELAY=3))))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_WALLET
+                        echo "${db_connection_alias}=(DESCRIPTION=(FAILOVER=true)(LOAD_BALANCE=true)(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".domain.local)(FAILOVER_MODE=(TYPE=select)(METHOD=preconnect)(RETRIES=20)(DELAY=3))))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_WALLET
                     else
-                        echo "${db_connection_alias}=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".gruppoitas.local)))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_WALLET
+                        echo "${db_connection_alias}=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".domain.local)))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_WALLET
                     fi
                 else
                     if [[ $db_connection == *"_11"* ]]; then
@@ -261,9 +261,9 @@ function wallet_alias() {
                     fi
 
                     if [[ $FAILOVER == true ]]; then
-                        echo "${db_connection_alias}=(DESCRIPTION=(FAILOVER=true)(LOAD_BALANCE=true)(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".gruppoitas.local)(FAILOVER_MODE=(TYPE=select)(METHOD=preconnect)(RETRIES=20)(DELAY=3))))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_WALLET
+                        echo "${db_connection_alias}=(DESCRIPTION=(FAILOVER=true)(LOAD_BALANCE=true)(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".domain.local)(FAILOVER_MODE=(TYPE=select)(METHOD=preconnect)(RETRIES=20)(DELAY=3))))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_WALLET
                     else
-                        echo "${db_connection_alias}=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".gruppoitas.local)))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_WALLET
+                        echo "${db_connection_alias}=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".domain.local)))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_WALLET
                     fi
                 fi
             done
@@ -351,9 +351,9 @@ function nouser_all_alias() {
 
                 # Build connection string
                 if [[ $FAILOVER == true ]]; then
-                    echo "${db_connection_alias}=(DESCRIPTION=(FAILOVER=true)(LOAD_BALANCE=true)(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".gruppoitas.local)(FAILOVER_MODE=(TYPE=select)(METHOD=preconnect)(RETRIES=20)(DELAY=3))))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_ALL_ENV
+                    echo "${db_connection_alias}=(DESCRIPTION=(FAILOVER=true)(LOAD_BALANCE=true)(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".domain.local)(FAILOVER_MODE=(TYPE=select)(METHOD=preconnect)(RETRIES=20)(DELAY=3))))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_ALL_ENV
                 else
-                    echo "${db_connection_alias}=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".gruppoitas.local)))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_ALL_ENV
+                    echo "${db_connection_alias}=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="${db_host}")(PORT="${db_port}"))(CONNECT_DATA=(SERVICE_NAME="${db_instance}".domain.local)))" | grep -iE "${FILTER_REGEXP}" >>$TNSNAMES_ALL_ENV
                 fi
             done
         done

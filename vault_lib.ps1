@@ -7,7 +7,7 @@
 # ==============================================================================
 
 # Vault Configuration
-$Global:URL_VAULT = "https://rpvault.gruppoitas.it"
+$Global:URL_VAULT = ""
 
 # Color codes for output
 $Global:VaultColors = @{

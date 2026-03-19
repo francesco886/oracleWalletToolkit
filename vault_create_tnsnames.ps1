@@ -122,7 +122,7 @@ $ErrorActionPreference = "Stop"
 
 $ENVIRONMENT_LIST = @("amm", "svi", "int", "tst", "pre", "prd")
 $SVN_SERVICE_USER = "service_vault"
-$SVN_BASE_URL     = "https://bcsvn.gruppoitas.it/svn/Esercizio/EAIP/trunk/80.Documentazione/AccessoDB/Connessioni/tnsnames/vault"
+$SVN_BASE_URL     = ""
 
 # ==============================================================================
 # Output helpers
@@ -165,11 +165,11 @@ function Test-FilterMatch ([string]$line) {
 # ==============================================================================
 
 function Build-TnsEntry ([string]$alias, [string]$dbHost, [string]$port, [string]$svc) {
-    return "${alias}=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${dbHost})(PORT=${port}))(CONNECT_DATA=(SERVICE_NAME=${svc}.gruppoitas.local)))"
+    return "${alias}=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${dbHost})(PORT=${port}))(CONNECT_DATA=(SERVICE_NAME=${svc}.domain.local)))"
 }
 
 function Build-FailoverTnsEntry ([string]$alias, [string]$dbHost, [string]$port, [string]$svc) {
-    return "${alias}=(DESCRIPTION=(FAILOVER=true)(LOAD_BALANCE=true)(ADDRESS=(PROTOCOL=TCP)(HOST=${dbHost})(PORT=${port}))(CONNECT_DATA=(SERVICE_NAME=${svc}.gruppoitas.local)(FAILOVER_MODE=(TYPE=select)(METHOD=preconnect)(RETRIES=20)(DELAY=3))))"
+    return "${alias}=(DESCRIPTION=(FAILOVER=true)(LOAD_BALANCE=true)(ADDRESS=(PROTOCOL=TCP)(HOST=${dbHost})(PORT=${port}))(CONNECT_DATA=(SERVICE_NAME=${svc}.domain.local)(FAILOVER_MODE=(TYPE=select)(METHOD=preconnect)(RETRIES=20)(DELAY=3))))"
 }
 
 function Build-DebugTnsEntry ([string]$alias, [string]$dbHost, [string]$port, [string]$svc, [string]$instName, [bool]$failover) {
